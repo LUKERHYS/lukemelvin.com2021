@@ -1,7 +1,7 @@
 <template>
-<div class="body">
-    <div class="contianer">
-      <div id="header" class="main">
+<div>
+    <div>
+      <div id="header">
         <h1>LukeMelvin.</h1>
         <div id="nav">
             <router-link to="/">Home</router-link> |
@@ -21,16 +21,32 @@ body{
     padding: 0;
     background-color: #ffffff;
     width:100vw;
+    display: block;
 }
-#body {
-  display: block;
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+#header {
+    background-color: #FABC2A;
+    height: 10vh;
+    width: 100%;
+    max-width: 100vw;
+    position: top;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0em 0.1em 1em rgba(0, 0, 0, .4);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    transition: 2s;
+    margin-bottom: 10vh;
+
+    h1 {
+      font-family: futura;
+      color: #404040;
+      font-weight: bold;
+      line-height: 100%;
+      margin: 0;
+      padding: 0 .4em .4em 1em;
+  }
 }
 
 #nav {
@@ -46,36 +62,11 @@ body{
   }
 }
 
-#header {
-    background-color: #FABC2A;
-    height: 10vh;
-    width: 100%;
-    max-width: 100vw;
-    position: top;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0em 0.1em 1em rgba(0, 0, 0, .4);
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    font-size: 100%;
-    transition: 2s;
-    margin-bottom: 10vh;
-}
-h1 {
-    font-family: futura;
-    margin: 0;
-    font-weight: bold;
-    line-height: 100%;
-    color: #404040;
-    padding: 0 .4em .4em 1em;
-}
-h4 {
-    padding: 0%;
-    margin: 0%;
-}
-img {
-    height: 5vh;
-    padding-right: 1%;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 </style>
