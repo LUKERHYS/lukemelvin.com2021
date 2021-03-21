@@ -55,6 +55,7 @@ body{
   a {
     font-weight: bold;
     color: #404040;
+    text-decoration-line: none;
 
     &.router-link-exact-active {
       color: #fa2ac6;
