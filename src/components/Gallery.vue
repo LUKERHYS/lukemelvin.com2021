@@ -1,6 +1,6 @@
 <template>
     <div class="grid-container">
-        <img class="grid-item" src="https://cms.lukemelvin.com/portfolios/COMP_1.jpeg">
+        <img class="grid-item" src="https://cms.lukemelvin.com/uploads/medium_COMP_1_a86ede41ec.jpeg">
     </div>
 </template>
 
