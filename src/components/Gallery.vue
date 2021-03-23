@@ -1,27 +1,41 @@
 <template>
-    <div class="grid-container">
-        <img class="grid-item" src="https://cms.lukemelvin.com/uploads/medium_COMP_1_a86ede41ec.jpeg">
-    </div>
+<div class="align-container">
+  <div :for="(url, index) in urls" class="grid-container">
+    <img :key="index" :src="preUrl + url">
+  </div>
+</div>
 </template>
 
 <script>
 export default {
   name: 'Gallery',
-  props: ['imageURLS'],
+  props: [],
   data() {
     return {
-      images: [],
+      preUrl: 'https://cms.lukemelvin.com',
+      urls: [],
     };
   },
   mounted() {
-    fetch('https://cms.lukemelvin.com/portfolios')
+    fetch('https://cms.lukemelvin.com/upload/files')
       .then((res) => res.json())
-      .then((payload) => { this.images = payload; });
+      .then((payload) => {
+        payload.forEach((image) => {
+          this.urls.push(image.url);
+        });
+      });
   },
 };
 </script>
 
 <style lang="scss" scoped>
+div {
+  border: solid red 1px;
+}
+.align-container {
+  display: flex;
+  justify-content: center;
+}
 .grid-container {
   max-width: 75vw;
   display: grid;
