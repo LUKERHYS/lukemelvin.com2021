@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>This is my photography portfolio</h1>
+        <!-- <h1>This is my photography portfolio</h1> -->
         <gallery />
     </div>
 </template>

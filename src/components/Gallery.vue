@@ -1,7 +1,11 @@
 <template>
 <div class="align-container">
-  <div :for="(url, index) in urls" class="grid-container">
-    <img :key="index" :src="preUrl + url">
+  <div class="masonry-with-columns">
+    <img
+    v-for="image in this.images"
+    :key="image.id"
+    :src="preUrl + image.url"
+    :alt="image.alternativeText">
   </div>
 </div>
 </template>
@@ -13,7 +17,7 @@ export default {
   data() {
     return {
       preUrl: 'https://cms.lukemelvin.com',
-      urls: [],
+      images: [],
     };
   },
   mounted() {
@@ -21,7 +25,7 @@ export default {
       .then((res) => res.json())
       .then((payload) => {
         payload.forEach((image) => {
-          this.urls.push(image.url);
+          this.images.push(image);
         });
       });
   },
@@ -36,15 +40,34 @@ div {
   display: flex;
   justify-content: center;
 }
-.grid-container {
-  max-width: 75vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 2em 2em;
-  grid-template-areas:
-    ". . ."
-    ". . ."
-    ". . .";
+.masonry-with-columns {
+  max-width: 90vw;
+  columns: 6 200px;
+  column-gap: 1rem;
+  div {
+    width: 150px;
+    background: #EC985A;
+    color: white;
+    margin: 0 1rem 1rem 0;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-family: system-ui;
+    font-weight: 900;
+    font-size: 2rem;
+  }
+  @for $i from 1 through 36 {
+    div:nth-child(#{$i}) {
+      $h: (random(400) + 100) + px;
+      height: $h;
+      line-height: $h;
+    }
+  }
+}
+img {
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  max-height: auto;
 }
 </style>
