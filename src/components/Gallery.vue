@@ -34,20 +34,18 @@ export default {
 
 <style lang="scss" scoped>
 div {
-  border: solid red 1px;
+  // border: solid red 1px;
 }
 .align-container {
   display: flex;
   justify-content: center;
 }
 .masonry-with-columns {
-  max-width: 90vw;
-  columns: 6 200px;
-  column-gap: 1rem;
+  width: 75vw;
+  columns: 3 200px;
+  column-gap: .5rem;
   div {
-    width: 150px;
-    background: #EC985A;
-    color: white;
+    width: 100vw;
     margin: 0 1rem 1rem 0;
     display: inline-block;
     width: 100%;
