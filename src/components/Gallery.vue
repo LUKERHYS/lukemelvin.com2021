@@ -16,12 +16,12 @@ export default {
   props: [],
   data() {
     return {
-      preUrl: '77.68.23.244',
+      preUrl: 'https://cms.lukemelvin.com',
       images: [],
     };
   },
   mounted() {
-    fetch('77.68.23.244/upload/files')
+    fetch('https://cms.lukemelvin.com/upload/files')
       .then((res) => res.json())
       .then((payload) => {
         payload.forEach((image) => {
