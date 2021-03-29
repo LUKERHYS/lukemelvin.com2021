@@ -2,7 +2,7 @@
 <div class="welcome-banner">
   <p>Hello, Welcome!</p>
   <p>Anyway, enough about me, Lets talk about you and
-    what you need help with {{ this.services }}</p>
+    what you need help with {{ this.service }}</p>
 </div>
 </template>
 
@@ -11,9 +11,11 @@ export default {
   name: 'Welcome',
   data() {
     return {
-      services: ['Photo', 'Web', 'Design'],
+      services: ['Photo', 'Web Dev', 'Design'],
+      service: '',
     };
   },
+
 };
 </script>
 
