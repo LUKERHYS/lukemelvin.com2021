@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+// import { component } from 'vue/types/umd';
 import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
@@ -14,6 +15,11 @@ const routes = [
     path: '/portfolio',
     name: 'Portfolio',
     component: () => import(/* webpackChunkName: "portfolio" */ '../views/Portfolio.vue'),
+  },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: () => import(/* webpackChunkName: "blog" */ '../views/Blog.vue'),
   },
   {
     path: '/about',

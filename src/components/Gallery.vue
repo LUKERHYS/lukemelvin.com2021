@@ -3,9 +3,9 @@
   <div class="masonry-with-columns">
     <img
     v-for="image in this.images"
-    :key="image.id"
-    :src="preUrl + image.url"
-    :alt="image.alternativeText">
+    :key="image.image.id"
+    :src="preUrl + image.image.url"
+    :alt="image.image.alternativeText">
   </div>
 </div>
 </template>
@@ -21,11 +21,13 @@ export default {
     };
   },
   mounted() {
-    fetch('https://cms.lukemelvin.com/upload/files')
+    fetch('https://cms.lukemelvin.com/folio-images')
       .then((res) => res.json())
       .then((payload) => {
         payload.forEach((image) => {
-          this.images.push(image);
+          if (image.publish === true) {
+            this.images.push(image);
+          }
         });
       });
   },
