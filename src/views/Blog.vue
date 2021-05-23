@@ -1,12 +1,14 @@
 <template>
-<!-- <div class="align-container">
-  <div class="masonry-with-columns"> -->
-  <div>
-    <div v-for="blogPost in this.blogPosts" :key="blogPost.id">
-      <h1>{{ blogPost.postTitle }}</h1>
-      <p>{{ blogPost.postContent }}</p>
-     </div>
-  </div>
+<!-- <div class="align-container"> -->
+  <!-- <div class="masonry-with-columns"> -->
+    <div class="post-content">
+      <div :style="textLimit" class="blog-item" v-for="blogPost in this.blogPosts" :key="blogPost.id">
+        <h1>{{ blogPost.postTitle }}</h1>
+        <p>{{ blogPost.postContent }}</p>
+      </div>
+      <button @click="readMoreLess">{{ moreOrLess }}</button>
+    </div>
+  <!-- </div> -->
 <!-- </div> -->
 </template>
 
@@ -23,6 +25,12 @@ export default {
     return {
       preUrl: 'https://cms.lukemelvin.com',
       blogPosts: [],
+      readMore: false,
+      textLimit: {
+        width: '30vw',
+        height: '30vh',
+      },
+      moreOrLess: 'More'
     };
   },
   mounted() {
@@ -36,6 +44,20 @@ export default {
         });
       });
   },
+  methods: {
+    readMoreLess() {
+      // this.readMore = !this.readMore;
+      if (this.textLimit.width === '30vw' && this.textLimit.height === '30vh') {
+        this.textLimit.width = 'auto';
+        this.textLimit.height = 'auto';
+        this.moreOrLess = 'Less';
+      } else {
+        this.textLimit.width = '30vw';
+        this.textLimit.height = '30vh';
+        this.moreOrLess = 'More';
+      }
+    }
+  }
 };
 </script>
 
@@ -45,7 +67,6 @@ div {
 }
 .align-container {
   display: flex;
-  justify-content: center;
 }
 .masonry-with-columns {
   width: 75vw;
@@ -74,5 +95,9 @@ img {
   margin: 0;
   max-width: 100%;
   max-height: auto;
+}
+.post-content {
+  overflow: hidden;
+  padding: 1em;
 }
 </style>
