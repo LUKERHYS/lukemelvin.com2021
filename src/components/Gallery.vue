@@ -35,9 +35,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div {
-  // border: solid red 1px;
-}
 .align-container {
   display: flex;
   justify-content: center;
