@@ -8,7 +8,7 @@
 export default {
   name: 'articleGrid',
   component: {
-    'article-tile': articleTile,
+    // 'article-tile': articleTile,
   },
 };
 </script>
