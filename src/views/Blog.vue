@@ -30,7 +30,7 @@ export default {
         width: '30vw',
         height: '30vh',
       },
-      moreOrLess: 'More'
+      moreOrLess: 'More',
     };
   },
   mounted() {
@@ -56,8 +56,8 @@ export default {
         this.textLimit.height = '30vh';
         this.moreOrLess = 'More';
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
