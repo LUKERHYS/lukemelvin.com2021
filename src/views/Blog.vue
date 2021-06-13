@@ -1,15 +1,15 @@
 <template>
-<!-- <div class="align-container"> -->
-  <!-- <div class="masonry-with-columns"> -->
-    <div class="post-content">
-      <div :style="textLimit" class="blog-item" v-for="blogPost in this.blogPosts" :key="blogPost.id">
-        <h1>{{ blogPost.postTitle }}</h1>
-        <p>{{ blogPost.postContent }}</p>
-      </div>
+<div class="grid">
+  <div class="blog-item" v-for="blogPost in this.blogPosts" :key="blogPost.id">
+    <div :style="textLimit" class="post-content">
+      <h1>{{ blogPost.postTitle }}</h1>
+      <p>{{ blogPost.postContent }}</p>
+    </div>
+    <div>
       <button @click="readMoreLess">{{ moreOrLess }}</button>
     </div>
-  <!-- </div> -->
-<!-- </div> -->
+  </div>
+</div>
 </template>
 
 <script>
@@ -63,32 +63,14 @@ export default {
 
 <style lang="scss" scoped>
 div {
-  // border: solid red 1px;
+  border: solid red 1px;
 }
-.align-container {
+.grid {
   display: flex;
 }
-.masonry-with-columns {
-  width: 75vw;
-  columns: 3 200px;
-  column-gap: .5rem;
-  div {
-    width: 100vw;
-    margin: 0 1rem 1rem 0;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    font-family: system-ui;
-    font-weight: 900;
-    font-size: 2rem;
-  }
-  @for $i from 1 through 36 {
-    div:nth-child(#{$i}) {
-      $h: (random(400) + 100) + px;
-      height: $h;
-      line-height: $h;
-    }
-  }
+.blog-item {
+  display: block;
+  margin:  1%;
 }
 img {
   padding: 0;
